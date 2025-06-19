@@ -57,6 +57,16 @@ FlagsManager.Parser = {
             end
         end,
     },
+    Textbox = {
+        Save = function(idx, object)
+            return { type = "Textbox", idx = idx, value = object.Value }
+        end,
+        Load = function(idx, data)
+            if FlagsManager.Flags[idx] then
+                FlagsManager.Flags[idx]:Set(data.value)
+            end
+        end,
+    },
 }
 
 function FlagsManager:SetIgnoreIndexes(list)
