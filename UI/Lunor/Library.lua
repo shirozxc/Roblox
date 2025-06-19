@@ -2848,8 +2848,8 @@ local Element = {}
 Element.__index = Element
 Element.__type = "Textbox"
 
-function Element:New(Config)
-    assert(Config, "Textbox - Missing Config table")
+function Element:New(Idx, Config)
+    local Library = self.Library
     assert(Config.Title, "Textbox - Missing Title")
     Config.Description = Config.Description or nil
     Config.PlaceHolder = Config.PlaceHolder or ""
@@ -2916,6 +2916,7 @@ function Element:New(Config)
         end
     end)
 
+	Library.Flags[Idx] = Textbox
     return Textbox
 end
 
