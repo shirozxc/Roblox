@@ -288,42 +288,13 @@ function Library:Load(cfgs)
 		},
 		BorderSizePixel = 0,
 		AnchorPoint = Vector2.new(1, 0.5),
-		Position = UDim2.new(1, -36, 0.5, 0),
-		Size = UDim2.new(0, 28, 0, 28),
-		ZIndex = 10,
-		Parent = top_frame,
-	}, {
-		Create("ImageLabel", {
-			Image = "rbxassetid://15269257100",
-			ImageRectOffset = Vector2.new(514, 257),
-			ImageRectSize = Vector2.new(256, 256),
-			AnchorPoint = Vector2.new(0.5, 0.5),
-			BackgroundTransparency = 1,
-			Position = UDim2.new(0.5, 0, 0.5, 0),
-			Size = UDim2.new(1, -10, 1, -10),
-			ThemeProps = {
-				BackgroundColor3 = "maincolor",
-			},
-			BorderSizePixel = 0,
-			ZIndex = 11,
-		}),
-	})
-
-	local closebtn = Create("TextButton", {
-		Text = "",
-		BackgroundTransparency = 1,
-		ThemeProps = {
-			BackgroundColor3 = "maincolor",
-		},
-		BorderSizePixel = 0,
-		AnchorPoint = Vector2.new(1, 0.5),
 		Position = UDim2.new(1, -8, 0.5, 0),
 		Size = UDim2.new(0, 28, 0, 28),
 		ZIndex = 10,
 		Parent = top_frame,
 	}, {
 		Create("ImageLabel", {
-			Image = "rbxassetid://15269329696",
+			Image = "rbxassetid://15269257100",
 			ImageRectOffset = Vector2.new(0, 514),
 			ImageRectSize = Vector2.new(256, 256),
 			AnchorPoint = Vector2.new(0.5, 0.5),
@@ -339,10 +310,6 @@ function Library:Load(cfgs)
 	})
 
 	AddConnection(minimizebtn.MouseButton1Click, ToggleVisibility)
-	AddConnection(closebtn.MouseButton1Click, function()
-		canvas_group:Destroy()
-		togglebtn:Destroy()
-	end)
 
 	local tab_frame = Create("Frame", {
 		BackgroundTransparency = 1,
