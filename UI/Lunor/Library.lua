@@ -3052,7 +3052,7 @@ local RunService = game:GetService("RunService")
 
 local tools = { Signals = {} }
 
-local themes = loadstring(game:HttpGet("https://raw.githubusercontent.com/Just3itx/3itx-UI-LIB/refs/heads/main/themes"))()
+local themes = loadstring(game:HttpGet("https://raw.githubusercontent.com/shirozxc/Roblox/refs/heads/main/UI/Lunor/Themes.lua"))()
 
 local currentTheme = themes.default
 local themedObjects = {}
