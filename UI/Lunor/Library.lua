@@ -236,8 +236,6 @@ function Library:Load(cfgs)
 		end)
 	end
 
-	ToggleVisibility()
-
 	MakeDraggable(togglebtn, togglebtn)
 	AddConnection(togglebtn.MouseButton1Click, ToggleVisibility)
 	AddConnection(UserInputService.InputBegan, function(value)
