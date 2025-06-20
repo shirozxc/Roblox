@@ -189,7 +189,7 @@ function Library:Load(cfgs)
 	end
 
 	local togglebtn = Create("ImageButton", {
-		AnchorPoint = Vector2.new(0.5, 0),
+		AnchorPoint = Vector2.new(0.85, 0),
 		AutoButtonColor = false,
 		ThemeProps = {
 			BackgroundColor3 = "maincolor",
