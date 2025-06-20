@@ -189,12 +189,12 @@ function Library:Load(cfgs)
 	end
 
 	local togglebtn = Create("ImageButton", {
-		AnchorPoint = Vector2.new(0.85, 0),
+		AnchorPoint = Vector2.new(1, 0),
 		AutoButtonColor = false,
 		ThemeProps = {
 			BackgroundColor3 = "maincolor",
 		},
-		Position = UDim2.new(0.5, 8, 0, 0),
+		Position = UDim2.new(1, -10, 0, 10),
 		Size = UDim2.new(0, 45, 0, 45),
 		Parent = GUI,
 		Image = cfgs.ToggleButton,
