@@ -194,7 +194,7 @@ function Library:Load(cfgs)
 		ThemeProps = {
 			BackgroundColor3 = "maincolor",
 		},
-		Position = UDim2.new(1, -10, 0, 10),
+		Position = UDim2.new(1, -30, 0, 5),
 		Size = UDim2.new(0, 45, 0, 45),
 		Parent = GUI,
 		Image = cfgs.ToggleButton,
