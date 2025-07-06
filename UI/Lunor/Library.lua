@@ -2128,7 +2128,7 @@ local CurrentThemeProps = Tools.GetPropsCurrentTheme()
 
 local Element = {}
 Element.__index = Element
-Element.__type = "Dropdown"
+Element.__type = ""
 
 function Element:New(Idx, Config)
 	assert(Config.Title, "Dropdown - Missing Title")
@@ -2366,6 +2366,8 @@ function Element:New(Idx, Config)
 			})
 
 			AddConnection(dropbtn.MouseButton1Click, function()
+				search.Text = ""
+										
 				if Config.Multiple then
 					local index = table.find(Dropdown.Value, Option)
 					if index then
