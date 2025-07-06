@@ -2128,7 +2128,7 @@ local CurrentThemeProps = Tools.GetPropsCurrentTheme()
 
 local Element = {}
 Element.__index = Element
-Element.__type = ""
+Element.__type = "Dropdown"
 
 function Element:New(Idx, Config)
 	assert(Config.Title, "Dropdown - Missing Title")
