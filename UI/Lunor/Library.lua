@@ -16,6 +16,7 @@ function generateRandomString(length)
 end
 
 local UserInputService = game:GetService("UserInputService")
+local GuiService = game:GetService("GuiService")
 local TweenService = game:GetService("TweenService")
 
 local ElementsTable = require(script.elements)
