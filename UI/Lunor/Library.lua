@@ -219,7 +219,7 @@ function Library:Load(cfgs)
 		local endPosition = isVisible and UDim2.new(0.5, 0, -1, 0) or UDim2.new(0.5, 0, 0.5, 0)
 		local fadeTo = isVisible and 1 or 0
 	
-		local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut)
+		local tweenInfo = TweenInfo.new(0.05, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut)
 	
 		local positionTween = TweenService:Create(canvas_group, tweenInfo, { Position = endPosition })
 	
@@ -239,8 +239,10 @@ function Library:Load(cfgs)
 	MakeDraggable(togglebtn, togglebtn)
 	AddConnection(togglebtn.MouseButton1Click, ToggleVisibility)
 	AddConnection(UserInputService.InputBegan, function(value)
-		if value.KeyCode == cfgs.BindGui then
-			ToggleVisibility()
+		if not (UserInputService:GetFocusedTextBox() or GuiService.MenuIsOpen) then
+			if value.KeyCode == cfgs.BindGui then
+				ToggleVisibility()
+			end
 		end
 	end)
 
