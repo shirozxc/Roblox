@@ -220,7 +220,7 @@ function Library:Load(cfgs)
 		local endPosition = isVisible and UDim2.new(0.5, 0, -1, 0) or UDim2.new(0.5, 0, 0.5, 0)
 		local fadeTo = isVisible and 1 or 0
 	
-		local tweenInfo = TweenInfo.new(0.05, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut)
+		local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut)
 	
 		local positionTween = TweenService:Create(canvas_group, tweenInfo, { Position = endPosition })
 	
@@ -824,7 +824,7 @@ function Notif:ShowNotification(titleText, descriptionText, duration)
     })
 
     local fadeInTweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-    local fadeInTween = TweenService:Create(main, fadeInTweenInfo, {BackgroundTransparency = 0.4})
+    local fadeInTween = TweenService:Create(main, fadeInTweenInfo, {BackgroundTransparency = 0.5})
     fadeInTween:Play()
 
     local fadeInTweenTitle = TweenService:Create(title, fadeInTweenInfo, {TextTransparency = 0})
