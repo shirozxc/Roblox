@@ -266,7 +266,7 @@ function Library:Load(cfgs)
 	})
 
 	local title = Create("TextLabel", {
-		Font = Enum.Font.SourceSans,
+		Font = Enum.Font.GothamMedium,
 		RichText = true,
 		Text = cfgs.Title,
 		ThemeProps = {
