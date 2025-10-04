@@ -189,32 +189,34 @@ function Library:Load(cfgs)
 		canvas_group.Size = UDim2.new(0.8, 0, 0.8, 0)
 	end
 
-	local togglebtn = Create("ImageButton", {
-		AnchorPoint = Vector2.new(1, 0),
-		AutoButtonColor = false,
-		ThemeProps = {
-			BackgroundColor3 = "maincolor",
-		},
-		Position = UDim2.new(1, -30, 0, 5),
-		Size = UDim2.new(0, 45, 0, 45),
-		Parent = GUI,
-		Image = cfgs.ToggleButton,
-	}, {
-		Create("UICorner", {
-			CornerRadius = UDim.new(0, 6),
-		}),
-		Create("UIStroke", {
-			ApplyStrokeMode = Enum.ApplyStrokeMode.Border,
+	if isMobile then
+		local togglebtn = Create("ImageButton", {
+			AnchorPoint = Vector2.new(1, 0),
+			AutoButtonColor = false,
 			ThemeProps = {
-				Color = "bordercolor",
+				BackgroundColor3 = "maincolor",
 			},
-			Enabled = true,
-			LineJoinMode = Enum.LineJoinMode.Round,
-			Thickness = 1,
-			Archivable = true,
-		}),
-	})
-
+			Position = UDim2.new(1, -30, 0, 5),
+			Size = UDim2.new(0, 45, 0, 45),
+			Parent = GUI,
+			Image = cfgs.ToggleButton,
+		}, {
+			Create("UICorner", {
+				CornerRadius = UDim.new(0, 6),
+			}),
+			Create("UIStroke", {
+				ApplyStrokeMode = Enum.ApplyStrokeMode.Border,
+				ThemeProps = {
+					Color = "bordercolor",
+				},
+				Enabled = true,
+				LineJoinMode = Enum.LineJoinMode.Round,
+				Thickness = 1,
+				Archivable = true,
+			}),
+		})
+	end
+						
 	local function ToggleVisibility()
 		local isVisible = canvas_group.Visible
 		local endPosition = isVisible and UDim2.new(0.5, 0, -1, 0) or UDim2.new(0.5, 0, 0.5, 0)
@@ -237,8 +239,11 @@ function Library:Load(cfgs)
 		end)
 	end
 
-	MakeDraggable(togglebtn, togglebtn)
-	AddConnection(togglebtn.MouseButton1Click, ToggleVisibility)
+	if isMobile then
+		MakeDraggable(togglebtn, togglebtn)
+		AddConnection(togglebtn.MouseButton1Click, ToggleVisibility)
+	end
+						
 	AddConnection(UserInputService.InputBegan, function(value)
 		if not (UserInputService:GetFocusedTextBox() or GuiService.MenuIsOpen) then
 			if value.KeyCode == cfgs.BindGui then
