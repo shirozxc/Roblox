@@ -227,14 +227,20 @@ function Library:Load(cfgs)
 		local positionTween = TweenService:Create(canvas_group, tweenInfo, { Position = endPosition })
 	
 		canvas_group.Visible = true
-		togglebtn.Visible = false
+
+		if isMobile then
+			togglebtn.Visible = false
+		end
 	
 		positionTween:Play()
 	
 		positionTween.Completed:Connect(function()
 			if isVisible then
 				canvas_group.Visible = false
-				togglebtn.Visible = true
+										
+				if isMobile then
+					togglebtn.Visible = true
+				end
 			end
 		end)
 	end
