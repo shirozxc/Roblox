@@ -224,7 +224,7 @@ function Library:Load(cfgs)
 		local endPosition = isVisible and UDim2.new(0.5, 0, -1, 0) or UDim2.new(0.5, 0, 0.5, 0)
 		local fadeTo = isVisible and 1 or 0
 	
-		local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut)
+		local tweenInfo = TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut)
 	
 		local positionTween = TweenService:Create(canvas_group, tweenInfo, { Position = endPosition })
 	
