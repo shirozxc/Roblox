@@ -189,8 +189,10 @@ function Library:Load(cfgs)
 		canvas_group.Size = UDim2.new(0.8, 0, 0.8, 0)
 	end
 
+	local togglebtn
+
 	if isMobile then
-		local togglebtn = Create("ImageButton", {
+		togglebtn = Create("ImageButton", {
 			AnchorPoint = Vector2.new(1, 0),
 			AutoButtonColor = false,
 			ThemeProps = {
