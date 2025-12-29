@@ -2813,10 +2813,27 @@ function Element:New(Idx, Config)
     end
 
 	function Slider:SetVisible(State)
-        if self then
-            self.Visible = State
-        end
-    end
+	    print("=== DEBUG SetVisible ===")
+	    print("State:", State)
+	    print("self:", self)
+	    print("self type:", typeof(self))
+	    print("self keys:")
+	    for k, v in pairs(self) do
+	        print("  ", k, "=", type(v), "value:", tostring(v))
+	    end
+	    print("SliderFrame (local):", SliderFrame)
+	    print("self._frame:", self._frame)
+	    
+	    if self._frame then
+	        print("Setting visibility to:", State)
+	        self._frame.Visible = State
+	    elseif SliderFrame then
+	        print("Using local SliderFrame")
+	        SliderFrame.Visible = State
+	    else
+	        print("ERROR: No frame found!")
+	    end
+	end
 						
 	function Slider:UpdateMax(NewMax)
 	    Config.Max = NewMax
