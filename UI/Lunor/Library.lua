@@ -2681,7 +2681,6 @@ function Element:New(Idx, Config)
     Config.IgnoreFirst = Config.IgnoreFirst or false
 
     local Slider = {
-        Frame = SliderFrame,
         Value = Config.Default,
         Min = Config.Min,
         Max = Config.Max,
@@ -2811,6 +2810,12 @@ function Element:New(Idx, Config)
         end
     end
 
+	function Slider:SetVisible(State)
+        if SliderFrame then
+            SliderFrame.Visible = State
+        end
+    end
+						
 	function Slider:UpdateMax(NewMax)
 	    Config.Max = NewMax
 	    self.Max = NewMax
