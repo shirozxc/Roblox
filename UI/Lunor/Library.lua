@@ -2688,14 +2688,12 @@ function Element:New(Idx, Config)
         IgnoreFirst = Config.IgnoreFirst,
         Callback = Config.Callback or function(Value) end,
         Type = "Slider",
-		Frame = nil,
     }
 
     local Dragging = false
     local DraggingDot = false
 
     local SliderFrame = require(Components.element)(Config.Title, Config.Description, self.Container)
-	Slider.Frame = SliderFrame
 
     local ValueText = Create("TextLabel", {
         Font = Enum.Font.Gotham,
@@ -2813,12 +2811,8 @@ function Element:New(Idx, Config)
     end
 
 	function Slider:SetVisible(State)
-	    if self.Frame then
-	        self.Frame.Visible = State
-			print("self.Frame")
-	    elseif SliderFrame then
-	        SliderFrame.Visible = State
-			print("SliderFrame")
+	    if SliderFrame then
+	        SliderFrame.Frame.Visible = State
 	    end
 	end
 						
@@ -2830,8 +2824,8 @@ function Element:New(Idx, Config)
 	end
 
 	function Slider:Destroy()
-        if self.Frame then
-            self.Frame:Destroy()
+        if SliderFrame then
+            SliderFrame:Destroy()
         end
 
 		if Library and Library.Flags and Idx then
