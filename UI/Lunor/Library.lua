@@ -2811,7 +2811,12 @@ function Element:New(Idx, Config)
     end
 
 	function Slider:SetVisible(State)
+		print("SFrame", SliderFrame.ClassName)
+		print("ParentSFrame", SliderFrame.Parent.ClassName)
+		print("Ancestor", SliderFrame:FindFirstAncestorWhichIsA("TextButton"):GetFullName())
+
         if SliderFrame then
+            print("Called", State)
             SliderFrame.Visible = State
         end
     end
