@@ -2813,25 +2813,12 @@ function Element:New(Idx, Config)
     end
 
 	function Slider:SetVisible(State)
-	    print("=== DEBUG SetVisible ===")
-	    print("State:", State)
-	    print("self:", self)
-	    print("self type:", typeof(self))
-	    print("self keys:")
-	    for k, v in pairs(self) do
-	        print("  ", k, "=", type(v), "value:", tostring(v))
-	    end
-	    print("SliderFrame (local):", SliderFrame)
-	    print("self._frame:", self._frame)
-	    
-	    if self._frame then
-	        print("Setting visibility to:", State)
-	        self._frame.Visible = State
+	    if self.Frame then
+	        self.Frame.Visible = State
+			print("self.Frame")
 	    elseif SliderFrame then
-	        print("Using local SliderFrame")
 	        SliderFrame.Visible = State
-	    else
-	        print("ERROR: No frame found!")
+			print("SliderFrame")
 	    end
 	end
 						
@@ -2843,8 +2830,8 @@ function Element:New(Idx, Config)
 	end
 
 	function Slider:Destroy()
-        if self then
-            self:Destroy()
+        if self.Frame then
+            self.Frame:Destroy()
         end
 
 		if Library and Library.Flags and Idx then
