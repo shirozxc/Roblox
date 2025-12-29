@@ -2818,11 +2818,13 @@ function Element:New(Idx, Config)
 	end
 
 	function Slider:Destroy()
-	    if SliderFrame and SliderFrame.Destroy then
+	    if SliderFrame then
 	        SliderFrame:Destroy()
 	    end
 
-	    self.Library.Flags[Idx] = nil
+		if Library and Library.Flags and Idx then
+            Library.Flags[Idx] = nil 
+        end
 	end
 
     local function updateSliderFromInput(inputPosition)
