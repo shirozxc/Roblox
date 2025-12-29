@@ -2810,6 +2810,21 @@ function Element:New(Idx, Config)
         end
     end
 
+	function Slider:UpdateMax(NewMax)
+	    Config.Max = NewMax
+	    self.Max = NewMax
+	
+	    self:Set(self.Value)
+	end
+
+	function Slider:Destroy()
+	    if SliderFrame and SliderFrame.Destroy then
+	        SliderFrame:Destroy()
+	    end
+
+	    self.Library.Flags[Idx] = nil
+	end
+
     local function updateSliderFromInput(inputPosition)
         if Dragging then
             local barPosition = SliderBar.AbsolutePosition
