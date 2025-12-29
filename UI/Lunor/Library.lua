@@ -2681,6 +2681,7 @@ function Element:New(Idx, Config)
     Config.IgnoreFirst = Config.IgnoreFirst or false
 
     local Slider = {
+        Frame = SliderFrame,
         Value = Config.Default,
         Min = Config.Min,
         Max = Config.Max,
