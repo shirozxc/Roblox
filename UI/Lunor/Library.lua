@@ -2813,8 +2813,8 @@ function Element:New(Idx, Config)
     end
 
 	function Slider:SetVisible(State)
-        if self.Frame then
-            self.Frame.Visible = State
+        if self then
+            self.Visible = State
         end
     end
 						
@@ -2826,8 +2826,8 @@ function Element:New(Idx, Config)
 	end
 
 	function Slider:Destroy()
-        if self.Frame then
-            self.Frame:Destroy()
+        if self then
+            self:Destroy()
         end
 
 		if Library and Library.Flags and Idx then
